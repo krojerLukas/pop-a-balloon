@@ -1,10 +1,12 @@
+import Balloon from "./components/Balloon.jsx";
+import "./css/general.css"
 
 
 function App() {
 
   return (
     <>
-      <p>Test</p>
+      <Balloon />
     </>
   )
 }
