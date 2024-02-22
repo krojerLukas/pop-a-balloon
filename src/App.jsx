@@ -5,9 +5,7 @@ import "./css/general.css"
 function App() {
 
   return (
-    <>
-      <Balloon />
-    </>
+      <Balloon color={"#9980FA"} id={"1"} />
   )
 }
 

@@ -1,19 +1,23 @@
 import "../css/balloon.css"
 
-const Balloon = () => {
+const Balloon = ({id, color}) => {
     const balloonWidth = 200;
     const balloonHeight = balloonWidth * 1.17;
     const threadHeight = 50;
 
     return (
-        <div className="balloon">
+        <div
+            className="balloon"
+            style={{color: color}}
+        >
             <svg
+                className="balloon-svg"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox={`0 0 ${balloonWidth} ${balloonHeight + threadHeight}`}
             >
                 <defs>
                     <radialGradient
-                        id="balloon-gradient"
+                        id={`balloon-gradient-${id}`}
                         cx="40%"
                         cy="40%"
                         r="50%"
@@ -23,7 +27,20 @@ const Balloon = () => {
                         <stop offset="0%" stopColor="#fff"/>
                         <stop offset="100%" stopColor="currentColor"/>
                     </radialGradient>
+                    <filter
+                        id={`balloon-shadow-${id}`}
+                        x="0"
+                        y="0"
+                        width="100%"
+                        height="100%"
+                    >
+                        <feMerge>
+                            <feMergeNode in="offsetBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
                 </defs>
+
                 <rect
                     x={balloonWidth / 2}
                     y={balloonHeight}
@@ -44,9 +61,9 @@ const Balloon = () => {
                     cy={balloonHeight / 2}
                     rx={balloonWidth / 2}
                     ry={balloonHeight / 2}
-                    fill="url(#balloon-gradient)"
+                    fill={`url(#balloon-gradient-${id})`}
+                    filter={`url(#balloon-shadow-${id})`}
                 />
-                ...
             </svg>
         </div>
     );
