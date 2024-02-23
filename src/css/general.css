@@ -9,3 +9,7 @@ svg {
     width: 100%;
     vertical-align: middle;
 }
+
+.row {
+    display: flex;
+}

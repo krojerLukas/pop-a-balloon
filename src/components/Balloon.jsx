@@ -1,15 +1,17 @@
 import "../css/balloon.css"
+import { useState } from "react";
 
-const Balloon = ({id, color}) => {
+const Balloon = ({props, id, color}) => {
+    const [isActive, setIsActive] = useState(false);
+    const [isPopped, setIsPopped] = useState(false);
+    const isMoving = true;
+
     const balloonWidth = 200;
     const balloonHeight = balloonWidth * 1.17;
     const threadHeight = 50;
 
     return (
-        <div
-            className="balloon"
-            style={{color: color}}
-        >
+        <div className="balloon balloon--moving" style={{color: color}}>
             <svg
                 className="balloon-svg"
                 xmlns="http://www.w3.org/2000/svg"
