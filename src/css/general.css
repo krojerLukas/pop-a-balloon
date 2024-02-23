@@ -1,0 +1,15 @@
+#root {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+svg {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.row {
+    display: flex;
+}
