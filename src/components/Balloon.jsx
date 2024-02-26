@@ -1,17 +1,26 @@
 import "../css/balloon.css"
 import { useState } from "react";
 
-const Balloon = ({props, id, color}) => {
-    const [isActive, setIsActive] = useState(false);
+const Balloon = (props) => {
     const [isPopped, setIsPopped] = useState(false);
-    const isMoving = true;
+
 
     const balloonWidth = 200;
     const balloonHeight = balloonWidth * 1.17;
     const threadHeight = 50;
 
+    function handleClick (event) {
+        setIsPopped(true);
+        const balloon = event.target;
+        balloon.parentNode.style.animation = "balloon-popping .5s forwards"
+    }
+
+    if (isPopped) {
+
+    }
+
     return (
-        <div className="balloon balloon--moving" style={{color: color}}>
+        <div onClick={handleClick} className="balloon balloon--moving" style={{color: props.color}}>
             <svg
                 className="balloon-svg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +28,7 @@ const Balloon = ({props, id, color}) => {
             >
                 <defs>
                     <radialGradient
-                        id={`balloon-gradient-${id}`}
+                        id={`balloon-gradient-${props.id}`}
                         cx="40%"
                         cy="40%"
                         r="50%"
@@ -30,7 +39,7 @@ const Balloon = ({props, id, color}) => {
                         <stop offset="100%" stopColor="currentColor"/>
                     </radialGradient>
                     <filter
-                        id={`balloon-shadow-${id}`}
+                        id={`balloon-shadow-${props.id}`}
                         x="0"
                         y="0"
                         width="100%"
@@ -63,8 +72,8 @@ const Balloon = ({props, id, color}) => {
                     cy={balloonHeight / 2}
                     rx={balloonWidth / 2}
                     ry={balloonHeight / 2}
-                    fill={`url(#balloon-gradient-${id})`}
-                    filter={`url(#balloon-shadow-${id})`}
+                    fill={`url(#balloon-gradient-${props.id})`}
+                    filter={`url(#balloon-shadow-${props.id})`}
                 />
             </svg>
         </div>

@@ -16,3 +16,15 @@
         transform: rotate(2deg);
     }
 }
+
+
+.balloon--popping {
+    animation: balloon-popping;
+}
+
+@keyframes balloon-popping {
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+        }
+}
