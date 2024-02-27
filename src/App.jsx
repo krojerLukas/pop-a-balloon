@@ -1,19 +1,24 @@
-import Balloon from "./components/Balloon.jsx";
 import "./css/general.css"
+import "./css/grid.css"
 import {useState} from "react";
+import { Fragment } from "react";
 
 
-function App (props) {
+function App(props) {
 
-  const [balloons, setBalloons] = useState(props.data)
+    const [balloonArr, setBalloonArr] = useState(props.data)
 
-  return (
-      <div className="grid">
-        <div className="row">
-          {balloons}
+    return (
+        <div className="grid">
+            <div className="row">
+                {balloonArr.map((balloon) => (
+                    <Fragment key={balloon.props.id}>
+                        {balloon}
+                    </Fragment>
+                ))}
+            </div>
         </div>
-      </div>
-  )
+    );
 }
 
-export default App
+export default App;
