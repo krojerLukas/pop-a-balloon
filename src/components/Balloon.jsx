@@ -3,8 +3,7 @@ import { useState } from "react";
 
 const Balloon = (props) => {
     const [isPopped, setIsPopped] = useState(false);
-
-
+    
     const balloonWidth = 200;
     const balloonHeight = balloonWidth * 1.17;
     const threadHeight = 50;
@@ -12,11 +11,7 @@ const Balloon = (props) => {
     function handleClick (event) {
         setIsPopped(true);
         const balloon = event.target;
-        balloon.parentNode.style.animation = "balloon-popping .5s forwards"
-    }
-
-    if (isPopped) {
-
+        balloon.parentNode.style.animation = "balloon-popping .5s forwards";
     }
 
     return (
