@@ -6,7 +6,16 @@ import { Fragment } from "react";
 
 function App(props) {
 
-    const [balloonArr, setBalloonArr] = useState(props.data)
+    const balloonArr = props.data
+
+    function pickRandomBalloon () {
+        for (let i = 0; i < balloonArr.length; i++) {
+            const randomPosition = Math.floor(Math.random() * balloonArr.length);
+            return balloonArr[randomPosition]
+        }
+
+    }
+    console.log(pickRandomBalloon());
 
     return (
         <div className="grid">
